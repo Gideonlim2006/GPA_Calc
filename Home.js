@@ -55,13 +55,15 @@ const Home = ({navigation}) => {
         let totalGradePoints = 0
         let totalCreditHours = 0
 
-        datasource.forEach(item => {
+        for (let i = 0; i < datasource.length; i++) {
+            const item = datasource[i];
             const gradeNumber = gradeValue[item.grade];
-            const credit = parseInt(item.credits)
+            const credit = parseInt(item.credits);
 
             totalGradePoints += gradeNumber * credit;
             totalCreditHours += credit;
-        })
+        }
+
 
         const gpa = totalGradePoints / totalCreditHours;
         Alert.alert("You have a GPA of:", gpa.toFixed(2));
